@@ -4,5 +4,11 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\IoCTest.Infrastructure.DAL\IoCTest.Infrastructure.DAL.csproj" />
+    <ProjectReference Include="..\IoCTest.Integrations.AzureStorage\IoCTest.Integrations.AzureStorage.csproj" />
+    <ProjectReference Include="..\IoCTest.Integrations.Email\IoCTest.Integrations.Email.csproj" />
+  </ItemGroup>
+
 
 </Project>

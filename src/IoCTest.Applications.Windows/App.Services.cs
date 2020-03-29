@@ -1,10 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Autofac;
+﻿using Autofac;
 using Autofac.Extensions.DependencyInjection;
+using IoCTest.Infrastructure.DAL;
+using IoCTest.Integrations.AzureStorage;
+using IoCTest.Integrations.Email;
+using IoCTest.Integrations.Email.Interfaces;
+using IoCTest.Integrations.Email.Services;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace IoCTest.Applications.Windows
@@ -17,6 +17,8 @@ namespace IoCTest.Applications.Windows
 			var containerBuilder = new ContainerBuilder();
 			IServiceCollection services = new ServiceCollection();
 
+			services.AddScoped<IEmailClient, EmailClient>();
+
 			this.ConfigureServices(services);
 
 			containerBuilder.Populate(services);
@@ -25,7 +27,9 @@ namespace IoCTest.Applications.Windows
 		}
 		private void ConfigureServices(IServiceCollection services)
 		{
-			// TODO: Configure services!
+			services.AddEmailServices();
+			services.AddDatabaseAccess();
+			services.AddStorage();
 		}
 	}
 }
