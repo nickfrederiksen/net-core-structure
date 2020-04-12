@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "IoCTest.Applications.CLI": {
+      "commandName": "Project",
+      "commandLineArgs": "-azureStorageConnectionString \"UseDevelopmentStorage=true\" -azureStorageQueueName \"queue-name\""
+    }
+  }
+}
